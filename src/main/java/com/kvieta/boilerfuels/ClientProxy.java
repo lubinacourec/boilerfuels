@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.kvieta.boilerfuels;
 
 public class ClientProxy extends CommonProxy {
 
