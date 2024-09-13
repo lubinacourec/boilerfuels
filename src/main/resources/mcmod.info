@@ -3,7 +3,7 @@
 	"modList": [{
 		"modid": "${modId}",
 		"name": "${modName}",
-		"description": "Add GT Large Boiler fuels to the Railcraft Liquid Boiler",
+		"description": "Add more (Gregtech) fuels to the Railcraft Liquid Boiler",
 		"version": "${modVersion}",
 		"mcversion": "${minecraftVersion}",
 		"url": "https://github.com/lubinacourec/boilerfuels",
