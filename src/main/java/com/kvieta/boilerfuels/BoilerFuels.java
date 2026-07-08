@@ -16,7 +16,8 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
     name = "BoilerFuels",
     acceptedMinecraftVersions = "[1.7.10]",
     acceptableRemoteVersions = "*",
-    dependencies = "required:Railcraft")
+    dependencies = "required-after:Railcraft")
+
 public class BoilerFuels {
 
     public static final String MODID = "boilerfuels";
