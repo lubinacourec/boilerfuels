@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
     name = "BoilerFuels",
     acceptedMinecraftVersions = "[1.7.10]",
     acceptableRemoteVersions = "*",
-    dependencies = "required-after:Railcraft")
+    dependencies = "required-after:gregtech")
 
 public class BoilerFuels {
 
