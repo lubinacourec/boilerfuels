@@ -10,7 +10,11 @@ import net.minecraftforge.fluids.FluidStack;
 import com.kvieta.boilerfuels.config.MainConfig;
 
 import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.event.*;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import gregtech.api.GregTechAPI;
 import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.util.GTRecipe;
