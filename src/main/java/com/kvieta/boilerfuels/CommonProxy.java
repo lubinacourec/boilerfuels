@@ -36,7 +36,7 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent event) {
-        GregTechAPI.sAfterGTPostload.add(() -> {
+        GregTechAPI.sGTCompleteLoad.add(() -> {
             BoilerFuels.LOG.info("GT postload complete");
             if (MainConfig.regenerateFuelList) {
                 MainConfig.clearFuelList();
