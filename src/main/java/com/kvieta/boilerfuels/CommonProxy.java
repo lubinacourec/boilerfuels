@@ -27,6 +27,9 @@ public class CommonProxy {
         if (!Loader.isModLoaded("Railcraft")) {
             throw new RuntimeException("BoilerFuels: Railcraft is missing!");
         }
+        if (!Loader.isModLoaded("gregtech")) {
+            throw new RuntimeException("BoilerFuels: gregtech is missing!");
+        }
         MainConfig.init(event.getSuggestedConfigurationFile());
         BoilerFuels.LOG.info("BoilerFuels version " + Tags.VERSION);
         registerBoilerFuels();
