@@ -82,10 +82,11 @@ public class CommonProxy {
             RecipeMaps.largeBoilerFakeFuels.getBackend()
                 .getAllRecipes()
                 .size());
+
         for (GTRecipe recipe : RecipeMaps.largeBoilerFakeFuels.getBackend()
             .getAllRecipes()) {
             if (recipe.mFluidInputs == null || recipe.mFluidInputs.length == 0) {
-                BoilerFuels.LOG.info("detectGTFuels ran but recipe empty");
+                BoilerFuels.LOG.info("detectGTFuels ran but recipe lacks fluid input");
                 continue;
             }
 
@@ -97,12 +98,21 @@ public class CommonProxy {
                 continue;
             }
 
-            double steelTime = (double) recipe.mDuration / fluid.amount;
-            int rcHeat = (int) Math.ceil(steelTime * (10000.0 / 3)); // 3333.33̅. Based on comparing ethanol heat
-                                                                     // value to GT large boiler burn time. Fuel
-                                                                     // (Diesel) multiplier is 4000, Creosote is 8000!
+            double steelTimePerBucket = ((double) recipe.mDuration / (double) 20)
+                * ((double) 1000 / (double) fluid.amount);
+            int rcHeat = (int) Math.ceil(steelTimePerBucket * (10000.0 / 3)); // 3333.33̅. Based on comparing ethanol
+                                                                              // heat
+            // value to GT large boiler burn time. Fuel
+            // (Diesel) multiplier is 4000, Creosote is 8000.
             BoilerFuels.LOG.info("updating config: fluid {} with heat value {}", fluidName, rcHeat);
             MainConfig.addFuel(fluidName, rcHeat);
+            BoilerFuels.LOG.info(
+                "fluid={} amount={} duration={} steelBurnTime={} rcHeat={}",
+                fluidName,
+                fluid.amount,
+                recipe.mDuration,
+                recipe.mDuration / 20.0,
+                rcHeat);
         }
         BoilerFuels.LOG.info("Config changed: {}", MainConfig.config.hasChanged());
         MainConfig.save();
